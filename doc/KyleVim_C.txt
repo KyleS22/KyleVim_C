@@ -1,0 +1,124 @@
+*KyleVimC.txt* Handy vim functionality for everyday use
+
+====================================================================
+CONTENTS                                       *KyleVimCContents*
+
+    1. Usage ................ |KyleVimCUsage|
+    	1.1 Default Behaviour |KyleVimCDefault|
+	    1.2 Commands ........ |KyleVimCCommands|
+	    1.3 Syntax Checking . |KyleVimCSyntax|
+    2. Mappings ............. |KyleVimCMappings|
+    3. Configuration ........ |KyleVimCConfiguration|
+	    3.1 Syntax Check Conf |KyleVimCSyntaxConfig|
+    4. License .............. |KyleVimCLicense|
+    5. Bugs ................. |KyleVimCBugs|
+    6. Contributing ......... |KyleVimCContributing|
+    7. Changelog ............ |KyleVimCChangelog|
+    8. Credits .............. |KyleVimCCredits|
+
+====================================================================
+Section 1: Usage                                  *KyleVimCUsage*
+
+--------------------------------------------------------------------
+1.1: Default Behaviour				*KyleVimCDefault*
+
+KyleVimC contains some automatic settings for easy editing of 
+C and C++ files.
+  
+New C and C++ files created with vim will automatically have a file header
+inserted at the top of the file.  This header looks like this:
+
+
+// File Name: file.txt (auto populated)
+//
+// Authors: {% Authors %}
+//
+// Date: The current date (auto populated)
+//
+// Description: {% Description %}
+
+You can replace the relevant details as you need.  If you have
+KyleVim installed (highly recommended) then you can use the
+quick inserts functionality to easily replace the file header
+Author and Description.
+
+
+-----------------------------------------------------------------
+1.2: Commands			  	    *KyleVimCCommands*
+
+KyleVimC defines a few commands that help with python
+development:
+
+                                                    *InsertDocstring*
+InsertDocstring(lineNum)	Insert an autofilled docstring for the 
+				            function or class on the line indicated
+				            by lineNum.
+			 
+
+-------------------------------------------------------------------
+1.3: Syntax Checking				*KyleVimCSyntax*
+
+TODO
+
+====================================================================
+Section 2: Mappings                            *KyleVimCMappings*
+
+<C-b>       This will call the InsertDocstring
+            function with the line at the cursor as the line number.
+
+<F4>	    The F4 key will initiate a search for functions and classes
+	    that do not contain docstrings.  Press F4 and the cursor will
+	    move to the next function or class declaration that does not have
+            a docstring
+
+====================================================================
+Section 3: Configuration		   *KyleVimCConfiguraion*
+
+--------------------------------------------------------------------
+3.1: Syntax Check Config		   *KyleVimCSyntaxConfig*
+
+TODO
+
+====================================================================
+Section 4: License                              *KyleVimCLicense*
+
+KyleVim is available under the MIT license.  More information is 
+available at: https://choosealicense.com/licenses/mit/
+
+====================================================================
+Section 5: Bugs                                    *KyleVimCBugs*
+
+I am currently not aware of any bugs, but I'm sure there are a few!
+
+If you find any issues, please report them using the 'Issues' tab at
+the main repository, or click this link:
+https://github.com/KyleS22/KyleVim_C/issues
+
+A good bug report is as specific and descriptive as possible.  
+Please include as many details about your setup as possible.
+
+Thanks!
+
+====================================================================
+Section 6: Contributing			   *KyleVimCContributing*
+
+The main repository can be found at 
+https://github.com/KyleS22/KyleVim_C
+
+If you would like to make a contribution, please create a new branch
+for your feature and create a pull request when ready.
+
+Thanks!
+
+
+====================================================================
+Section 7: Changelog                          *KyleVimCChangelog*
+
+0.1.0
+	-
+
+====================================================================
+Section 8: Credits                              *KyleVimCCredits*
+
+
+Written and maintained by Kyle Seidenthal

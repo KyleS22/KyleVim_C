@@ -115,7 +115,7 @@ Thanks!
 Section 7: Changelog                          *KyleVimCChangelog*
 
 0.1.0
-	-
+	- Add auto file headers
 
 ====================================================================
 Section 8: Credits                              *KyleVimCCredits*

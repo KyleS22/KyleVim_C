@@ -1,2 +1,4 @@
+*.cpp
 *.c
+*.swp
 __pycache__/

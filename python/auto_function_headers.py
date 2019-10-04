@@ -171,7 +171,18 @@ def _insert_class_header(line_num):
     :returns: None
     """
 
-    pass
+    current_buffer = vim.current.buffer
+
+    # Indent the docstring to the class indentation level
+    spaces = _check_indentation(line_num)
+
+    # Build the comment block
+    comment = "// {% classy comment here %}"
+
+    comment = spaces + comment
+
+    # Insert the comment block
+    current_buffer.append(comment, line_num-1)
 
 
 def _insert_struct_header(line_num):
@@ -181,8 +192,18 @@ def _insert_struct_header(line_num):
     :param line_num: The line number that the struct is on
     :returns: None
     """
+    current_buffer = vim.current.buffer
 
-    pass
+    # Indent the docstring to the class indentation level
+    spaces = _check_indentation(line_num)
+
+    # Build the comment block
+    comment = "// {% struct comment here %}"
+
+    comment = spaces + comment
+
+    # Insert the comment block
+    current_buffer.append(comment, line_num-1)
 
 
 def _check_indentation(line_num):

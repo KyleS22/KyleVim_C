@@ -42,4 +42,9 @@ command! -nargs=1 InsertCHeader call InsertCHeader(<f-args>)
 nnoremap <C-b> :call InsertCHeader(line("."))<CR>
 inoremap <C-b> <ESC>:call InsertCHeader(line("."))<CR>I
 
+" 80 character column line
+if exists('+colorcolumn')
+	set colorcolumn=80
+endif
+
 let g:KyleVim_C_plugin_loaded = 1

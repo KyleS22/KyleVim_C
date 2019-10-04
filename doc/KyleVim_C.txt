@@ -42,7 +42,9 @@ KyleVim installed (highly recommended) then you can use the
 quick inserts functionality to easily replace the file header
 Author and Description.
 
-
+The plugin will also add a visual column indicating the character
+length for a single line.  This is set to 80 characters to comply
+with C99 standards.
 -----------------------------------------------------------------
 1.2: Commands			  	    *KyleVimCCommands*
 
@@ -115,6 +117,7 @@ Thanks!
 Section 7: Changelog                          *KyleVimCChangelog*
 
 0.1.0
+	- Add colorcolumn line for 80 characters
 	- Add auto docstrings
 	- Add auto file headers
 

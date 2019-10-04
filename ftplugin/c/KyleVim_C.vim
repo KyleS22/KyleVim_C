@@ -43,7 +43,7 @@ nnoremap <C-b> :call InsertCHeader(line("."))<CR>
 inoremap <C-b> <ESC>:call InsertCHeader(line("."))<CR>I
 
 " 80 character column line
-if exists('+colorcolumn')
+if !exists("g:KyleVimC_Disable_ColorCol") && exists('+colorcolumn')
 	set colorcolumn=80
 endif
 

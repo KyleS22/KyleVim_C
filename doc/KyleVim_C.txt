@@ -10,6 +10,7 @@ CONTENTS                                       *KyleVimCContents*
     2. Mappings ............. |KyleVimCMappings|
     3. Configuration ........ |KyleVimCConfiguration|
 	    3.1 Syntax Check Conf |KyleVimCSyntaxConfig|
+	    3.2 Color Col Conf ...|KyleVimCColorColConfig|
     4. License .............. |KyleVimCLicense|
     5. Bugs ................. |KyleVimCBugs|
     6. Contributing ......... |KyleVimCContributing|
@@ -80,6 +81,16 @@ Section 3: Configuration		   *KyleVimCConfiguraion*
 3.1: Syntax Check Config		   *KyleVimCSyntaxConfig*
 
 TODO
+
+--------------------------------------------------------------------
+
+3.2: Colour Col Config			    *KyleVimCColorColConfig*
+
+By default, the plugin will display a visual line on the 80th column
+to indicate the max line length according to the C99 standard.  To
+disable this line, add the following to your .vimrc:
+
+	'let g:KyleVimC_Disable_ColorCol = 1'
 
 ====================================================================
 Section 4: License                              *KyleVimCLicense*

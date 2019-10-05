@@ -21,6 +21,9 @@ if !exists("g:KyleVimC_Disable_NumberHl")
 	hi cursorline cterm=none ctermbg=none
 endif
 
+hi GutWarn ctermfg=11 ctermbg=none
+sign define warn text=w texthl=GutWarn
+
 " Load the python modules
 python3 << EOF
 
@@ -79,7 +82,17 @@ function! CheckCSyntax()
 
 		let line_num = parts[1]
 
-		exe ":sign place 2 line=" . line_num ." name=Vu_error file=" . expand("%:p")
+		try
+			let type = parts[3]
+		catch
+			continue
+		endtry
+
+		if type =~ "error"
+			exe ":sign place 2 line=" . line_num ." name=Vu_error file=" . expand("%:p")
+		else
+			exe ":sign place 2 line=" . line_num . " name=warn file=" . expand("%:p")
+		endif
 	endfor
 endfunction
 

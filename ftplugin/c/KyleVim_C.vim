@@ -51,6 +51,8 @@ command! -nargs=1 InsertCHeader call InsertCHeader(<f-args>)
 nnoremap <C-b> :call InsertCHeader(line("."))<CR>
 inoremap <C-b> <ESC>:call InsertCHeader(line("."))<CR>I
 
+nnoremap <F5> :call InsertIncludeGuard()<CR>
+inoremap <F5> <ESC>:call InsertIncludeGuard()<CR>I
 " 80 character column line
 if !exists("g:KyleVimC_Disable_ColorCol") && exists('+colorcolumn')
 	set colorcolumn=80
@@ -112,7 +114,7 @@ endfunction
 autocmd BufWinEnter <buffer> call CheckCSyntax()
 autocmd BufWritePost <buffer> call CheckCSyntax()
 
-function BuffersList()
+function! BuffersList()
   let all = range(0, bufnr('$'))
   let res = []
   for b in all
@@ -121,6 +123,26 @@ function BuffersList()
     endif
   endfor
   return res
+
 endfunction
 
+" Auto insert include guards
+function! InsertIncludeGuard()
+	let lines = getbufline(bufnr("%"), 1, "$")
+	let i = 0
+	
+	let include_name = toupper(expand("%:r")) . "_INCLUDE"
+	
+
+	for line in lines
+		if line =~ "//"
+			let i = i + 1
+		else
+			call append(i, "#ifndef " . include_name)
+			call append(i + 1, "#define " . include_name)	
+			break
+		endif
+	endfor	
+	call append("$", "#endif // " . include_name)
+endfunction
 let g:KyleVim_C_plugin_loaded = 1

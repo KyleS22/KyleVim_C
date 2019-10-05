@@ -52,11 +52,13 @@ with C99 standards.
 KyleVimC defines a few commands that help with python
 development:
 
-                                                    *InsertDocstring*
+                                                    *KyleVimCInsertDocstring*
 InsertDocstring(lineNum)	Insert an autofilled docstring for the 
 				            function or class on the line indicated
 				            by lineNum.
-			 
+								 			
+						*KyleVimCInsertIncludeGuard*
+InsertIncludeGuard()		Insert an include guard for the current file.
 
 -------------------------------------------------------------------
 1.3: Syntax Checking				*KyleVimCSyntax*
@@ -72,10 +74,14 @@ Section 2: Mappings                            *KyleVimCMappings*
 <C-b>       This will call the InsertDocstring
             function with the line at the cursor as the line number.
 
+TODO: THIS IS NOT IMPLEMENTED
 <F4>	    The F4 key will initiate a search for functions and classes
 	    that do not contain docstrings.  Press F4 and the cursor will
 	    move to the next function or class declaration that does not have
             a docstring
+
+<F5> 	    This will call the InsertIncludeGuard function, which will
+	    insert an include guard for the current file.
 
 ====================================================================
 Section 3: Configuration		   *KyleVimCConfiguraion*
@@ -133,7 +139,9 @@ Thanks!
 ====================================================================
 Section 7: Changelog                          *KyleVimCChangelog*
 
-0.1.0
+0.1.0	
+	- Add auto insert of Include Guards with <F5>
+	- Add error parsing from makefile
 	- Add gcc error pips in the line number gutter
 	- Add colorcolumn line for 80 characters
 	- Add auto docstrings

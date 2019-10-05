@@ -2,3 +2,4 @@
 *.c
 *.swp
 __pycache__/
+testcproj/

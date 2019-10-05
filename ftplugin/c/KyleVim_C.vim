@@ -65,9 +65,19 @@ function! CheckCSyntax()
 
 	call clearmatches()
 	cexpr []	
-	exe "sign unplace * file=" . expand("%:p")
+		
 
-	let report = systemlist("gcc -o /dev/null -Wall -Wextra " . bufname("%"))
+	if filereadable("Makefile")
+		for name in BuffersList()
+			if name != ""
+				exe "sign unplace * file=" . name
+			endif
+		endfor 
+	
+		let report = systemlist("make")
+	else
+		let report = systemlist("gcc -o /dev/null -Wall -Wextra " . bufname("%"))
+	endif 
 
 	for msg in report
 		
@@ -79,8 +89,10 @@ function! CheckCSyntax()
 		if len(parts) == 1
 			continue
 		endif
-
+		
+		let file_name = parts[0]
 		let line_num = parts[1]
+		
 
 		try
 			let type = parts[3]
@@ -89,9 +101,9 @@ function! CheckCSyntax()
 		endtry
 
 		if type =~ "error"
-			exe ":sign place 2 line=" . line_num ." name=Vu_error file=" . expand("%:p")
+			exe ":sign place 2 line=" . line_num ." name=Vu_error file=" . file_name
 		else
-			exe ":sign place 2 line=" . line_num . " name=warn file=" . expand("%:p")
+			exe ":sign place 2 line=" . line_num . " name=warn file=" . file_name
 		endif
 	endfor
 endfunction
@@ -99,5 +111,16 @@ endfunction
 " Check Syntax when the file is opened or saved
 autocmd BufWinEnter <buffer> call CheckCSyntax()
 autocmd BufWritePost <buffer> call CheckCSyntax()
+
+function BuffersList()
+  let all = range(0, bufnr('$'))
+  let res = []
+  for b in all
+    if buflisted(b)
+      call add(res, bufname(b))
+    endif
+  endfor
+  return res
+endfunction
 
 let g:KyleVim_C_plugin_loaded = 1

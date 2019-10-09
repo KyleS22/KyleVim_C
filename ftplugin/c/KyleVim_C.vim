@@ -50,6 +50,9 @@ nnoremap <C-b> :call InsertCHeader(line("."))<CR>
 inoremap <C-b> <ESC>:call InsertCHeader(line("."))<CR>I
 
 
+" Map undocumented function search to F4
+imap <F4> <Esc> :call FindUndocumentedCFunctions()<CR>
+map <F4> :call FindUndocumentedCFunctions()<CR>
 
 "===================================================================
 " Autocommands

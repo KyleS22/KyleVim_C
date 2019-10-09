@@ -54,6 +54,11 @@ inoremap <C-b> <ESC>:call InsertCHeader(line("."))<CR>I
 imap <F4> <Esc> :call FindUndocumentedCFunctions()<CR>
 map <F4> :call FindUndocumentedCFunctions()<CR>
 
+
+" Open Corresponding Header File
+imap <F2> <Esc> :call OpenHeaderFile()<CR>
+map <F2> :call OpenHeaderFile()<CR>
+
 "===================================================================
 " Autocommands
 "==================================================================

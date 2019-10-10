@@ -9,3 +9,16 @@ See the documentation for details on all features
 	- Undocumented function search
 	- Auto insert #include guards
 	- Easily insert function documentation comments
+	
+# Installation
+This plugin can be installed using [Vundle](https://github.com/VundleVim/Vundle.vim).  Simply add the following line to your vimrc
+
+```
+Other Vundle Plugins
+
+" KyleVim_C
+Plugin 'KyleS22/KyleVim_C'
+
+```
+
+Then start up vim and run `:PluginInstall`

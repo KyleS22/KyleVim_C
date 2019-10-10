@@ -215,6 +215,8 @@ Thanks!
 ====================================================================
 Section 7: Changelog                          *KyleVimCChangelog*
 
+0.1.1
+	- Fix bug with warnings not going away in simple C files
 0.1.0
 	- Add syntax config options
 	- Add Quick header open with <F2>	

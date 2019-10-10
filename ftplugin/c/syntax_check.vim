@@ -26,6 +26,7 @@ function! CheckCSyntax()
 	
 		let report = systemlist("make")
 	else
+		exe "sign unplace * file=" . expand("%:t")
 		let report = systemlist("gcc -o /dev/null -Wall -Wextra " . bufname("%"))
 	endif 
 

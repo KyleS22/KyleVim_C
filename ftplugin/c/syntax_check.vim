@@ -8,8 +8,16 @@ function! CheckCSyntax()
 	call clearmatches()
 	cexpr []	
 		
+    if exists("g:CurSyntaxCommand")
+        for name in BuffersList()
+            if name != ""
+                exe "sign unplace * file=" . name
+            endif
+        endfor
 
-	if filereadable("Makefile")
+        let report = systemlist(g:CurSyntaxCommand)
+    
+    elseif filereadable("Makefile")
 		for name in BuffersList()
 			if name != ""
 				exe "sign unplace * file=" . name

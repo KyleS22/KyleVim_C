@@ -60,12 +60,25 @@ imap <F2> <Esc> :call OpenHeaderFile()<CR>
 map <F2> :call OpenHeaderFile()<CR>
 
 "===================================================================
+" Commands
+"==================================================================
+
+command! -nargs=1 AddSyntaxConfig :call AddSyntaxConfig(<q-args>)
+
+
+"===================================================================
 " Autocommands
 "==================================================================
-" Check Syntax when the file is opened or saved
-autocmd BufWinEnter <buffer> call CheckCSyntax()
-autocmd BufWritePost <buffer> call CheckCSyntax()
 
+" Check Syntax when the file is opened or saved
+if !exists("g:KyleVimC_DisableSyntax")
+    
+    autocmd BufWinEnter <buffer> call GetSyntaxConfig(expand("%"))
+	autocmd BufWinEnter <buffer> call CheckCSyntax()
+	autocmd BufWritePost <buffer> call CheckCSyntax()
+
+    
+endif
 
 
 "==================================================================

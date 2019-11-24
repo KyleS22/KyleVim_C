@@ -14,8 +14,8 @@ let s:plugin_root_dir = fnamemodify(resolve(expand('<sfile>p')), ':h')
 
 
 " Automatic File Headers
-autocmd bufnewfile *.c,*.cpp,*.h execute "so " . s:plugin_root_dir . "/c_header.txt"
-autocmd bufnewfile *.c,*.cpp,*.h exe "1," . 7 . "g/File Name:.*/s//File Name: " .expand("%:t")
-autocmd bufnewfile *.c,*.cpp,*.h exe "1," . 7 . "g/Date:.*/s//Date: " .strftime("%d-%m-%Y")
+autocmd bufnewfile *.cc,*.c,*.cpp,*.h execute "so " . s:plugin_root_dir . "/c_header.txt"
+autocmd bufnewfile *.cc,*.c,*.cpp,*.h exe "1," . 7 . "g/File Name:.*/s//File Name: " .expand("%:t")
+autocmd bufnewfile *.cc,*.c,*.cpp,*.h exe "1," . 7 . "g/Date:.*/s//Date: " .strftime("%d-%m-%Y")
 
 

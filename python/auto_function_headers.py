@@ -106,19 +106,41 @@ def _insert_function_dec_header(line_num):
     # Indent the docstring to the function indentation level
     spaces = _check_indentation(line_num)
 
-    # Build the comment block
-    comment = ["// {% What it do %}"]
+    if vim.eval('g:KyleVimC_Doxygen') == '1':
 
-    if len(params) > 0 and params[0] != "":
+        comment = ["/// @brief {% What it do %}"]
+        comment.append("///")
+        comment.append("/// @pre {% Preconditions %}")
+        comment.append("/// @post {% Postconditions %}")
+
+        if len(params) > 0 and params[0] != "":
+            comment.append("///")
+
+        for p in params:
+            if p == "":
+                continue
+            comment.append("/// @param " + p.strip() + ": {% A parameter %}")
+
+        comment.append("///")
+        comment.append("/// @return {% A thing %}")
+        comment.append("///")
+        comment.append("/// @details {% Details go here %}")
+
+    else:
+
+        # Build the comment block
+        comment = ["// {% What it do %}"]
+
+        if len(params) > 0 and params[0] != "":
+            comment.append("//")
+
+        for p in params:
+            if p == "":
+                continue
+            comment.append("// param " + p.strip() + ": {% A parameter %}")
+
         comment.append("//")
-
-    for p in params:
-        if p == "":
-            continue
-        comment.append("// param " + p.strip() + ": {% A parameter %}")
-
-    comment.append("//")
-    comment.append("// returns: {% A thing %}")
+        comment.append("// returns: {% A thing %}")
 
     for i in range(len(comment)):
         comment[i] = spaces + comment[i]
@@ -176,10 +198,19 @@ def _insert_class_header(line_num):
     # Indent the docstring to the class indentation level
     spaces = _check_indentation(line_num)
 
-    # Build the comment block
-    comment = "// {% classy comment here %}"
+    if vim.eval("g:KyleVimC_Doxygen") == '1':
+        comment = ["/// @brief {% Brief Description %}",
+                   "/// @author {% Author %}"]
 
-    comment = spaces + comment
+        for i in range(len(comment)):
+            comment[i] = spaces + comment[i]
+
+    else:
+
+        # Build the comment block
+        comment = "// {% classy comment here %}"
+
+        comment = spaces + comment
 
     # Insert the comment block
     current_buffer.append(comment, line_num-1)
@@ -197,10 +228,19 @@ def _insert_struct_header(line_num):
     # Indent the docstring to the class indentation level
     spaces = _check_indentation(line_num)
 
-    # Build the comment block
-    comment = "// {% struct comment here %}"
+    if vim.eval("g:KyleVimC_Doxygen") == '1':
+        comment = ["/// @brief {% Brief Description %}",
+                   "/// @author {% Author %}"]
 
-    comment = spaces + comment
+        for i in range(len(comment)):
+            comment[i] = spaces + comment[i]
+
+    else:
+
+        # Build the comment block
+        comment = "// {% struct comment here %}"
+
+        comment = spaces + comment
 
     # Insert the comment block
     current_buffer.append(comment, line_num-1)

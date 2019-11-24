@@ -33,6 +33,10 @@ if !exists("g:KyleVimC_Disable_ColorCol") && exists('+colorcolumn')
 endif
 
 
+if !exists("g:KyleVimC_Doxygen")
+    let g:KyleVimC_Doxygen = 0
+endif
+
 " Set up highlights and signs for gcc warnings
 hi GutWarn ctermfg=11 ctermbg=none
 sign define warn text=w texthl=GutWarn

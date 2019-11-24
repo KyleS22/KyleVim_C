@@ -13,6 +13,7 @@ CONTENTS                                       *KyleVimCContents*
 	    3.2 Line Num Hi ..... |KyleVimCLineNumHi|
 	    3.3 QuickHeader ..... |KyleVimCQuickHeader|
 	    3.4 Syntax Checks ... |KyleVimCSyntaxConfig|
+        3.5 Doxygen ......... |KyleVimCDoxygen|
     4. License .............. |KyleVimCLicense|
     5. Bugs ................. |KyleVimCBugs|
     6. Contributing ......... |KyleVimCContributing|
@@ -179,6 +180,17 @@ current open file.
 
 To disable syntax checking on files, add the following to your .vimrc:
 	`let g:KyleVimC_DisableSyntax = 1`
+
+--------------------------------------------------------------------
+3.5: Doxygen                        *KyleVimCDoxygen*
+
+To configure auto comments for Doxygen, simply add the following
+line to your .vimrc:
+
+    `let KyleVimC_Doxygen = 1`
+
+This will generate documentation strings with some common tags
+used in doxygen documentation.
 
 ====================================================================
 Section 4: License                              *KyleVimCLicense*

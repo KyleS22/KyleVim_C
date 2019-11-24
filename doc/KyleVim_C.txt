@@ -227,6 +227,9 @@ Thanks!
 ====================================================================
 Section 7: Changelog                          *KyleVimCChangelog*
 
+0.2.0
+	- Add config for Doxygen style comments
+
 0.1.1
 	- Fix bug with warnings not going away in simple C files
 0.1.0
